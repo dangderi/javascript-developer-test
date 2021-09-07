@@ -22,8 +22,9 @@ const httpRequestMockP = (url) => new Promise((resolve, reject) => {
 const httpGet = async (url) => {
   try {
     const message = await httpRequestMockP(url);
+    console.log(`message: ${JSON.stringify(message)}`);
     return { status: 200, body: JSON.stringify({ message }) };
-  } 
+  }
   catch (err) {
     return { status: 500, body: JSON.stringify({ message: err.message }) };
   }
